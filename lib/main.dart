@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:news_app/core/utils/AppString.dart';
+import 'NewsApp/presentation/RouteManager.dart';
+import 'core/global/theme/ThemeManager.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,15 +11,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
-  @override
+  @override   
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const SizedBox(),
+      title: AppString.appName,
+      debugShowCheckedModeBanner: false,
+      initialRoute: Routes.home,
+      theme: getApplicationThemData(),
+      getPages: Routes.routes,
     );
   }
 }
