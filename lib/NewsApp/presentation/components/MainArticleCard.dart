@@ -26,20 +26,20 @@ class MainArticleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-          horizontal: 15), // Set your desired fixed height here
+          horizontal: 15), 
       child: Container(
-        width: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width *0.9,
         decoration: BoxDecoration(
           borderRadius: const BorderRadius.all(
             Radius.circular(15),
           ),
           image: DecorationImage(
-            image: NetworkImage(imageUrl), // Load the image from the URL
-            fit: BoxFit.cover, // Adjust the fit as needed
+            image: NetworkImage(imageUrl), 
+            fit: BoxFit.cover, 
           ),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end, // Align text to the bottom
+          mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
@@ -50,52 +50,52 @@ class MainArticleCard extends StatelessWidget {
                   bottomRight: Radius.circular(15),
                 ),
               ),
-              // Black with some opacity for shadow
+             
               padding:
-                  const EdgeInsets.all(8.0), // Adjust the padding as needed
+                  const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     title,
                     style: const TextStyle(
-                      fontSize: 18, // Adjust the font size as needed
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white, // Set text color to white
+                      color: Colors.white, 
                     ),
                   ),
                   const SizedBox(
-                      height: 8), // Add spacing between title and description
+                      height: 8), 
                   Text(
                     description,
                     style: const TextStyle(
-                      fontSize: 14, // Adjust the font size as needed
-                      color: Colors.white, // Set text color to white
+                      fontSize: 14, 
+                      color: Colors.white, 
                     ),
-                    maxLines: 2, // Limit description to 2 lines
+                    maxLines: 2, 
                     overflow: TextOverflow
-                        .ellipsis, // Add ellipsis (...) for overflow
+                        .ellipsis, 
                   ),
                   const SizedBox(
                       height:
-                          8), // Add spacing between description and other content
+                          8),
                   Text(
                     'Source: $sourceName',
                     style: const TextStyle(
-                      fontSize: 12, // Adjust the font size as needed
+                      fontSize: 12, 
                       fontStyle: FontStyle.italic,
-                      color: Colors.white, // Set text color to white
+                      color: Colors.white, 
                     ),
                   ),
                   const SizedBox(
                       height:
-                          8), // Add spacing between source and other content
+                          8), 
                   Text(
                     'Author: $author',
                     style: const TextStyle(
-                      fontSize: 12, // Adjust the font size as needed
+                      fontSize: 12, 
                       fontStyle: FontStyle.italic,
-                      color: Colors.white, // Set text color to white
+                      color: Colors.white,
                     ),
                   ),
                 ],
