@@ -1,10 +1,16 @@
-  class Country {
-  String name;
-  String code;
+import 'package:get/get.dart';
+import 'package:news_app/NewsApp/domain/usecases/get_topHeadlines_usecase.dart';
 
-  Country(this.name, this.code);
-}
-  
+import '../../../core/service/serviceLocator.dart';
+import '../../domain/entities/Article.dart';
+
+class TopHeadlinesController extends GetxController {
+  List<Article> articles = [];
+  bool loading = true;
+  bool error = false;
+  String country = "us";
+  String category = "business";
+
   List<Country> countries = [
     Country("United Arab Emirates", "ae"),
     Country("Argentina", "ar"),
@@ -62,4 +68,57 @@
     Country("South Africa", "za"),
   ];
 
-  List<String> categories=["business","entertainment","general","health","science","sports","technology"];
+  List<String> categories = [
+    "business",
+    "entertainment",
+    "general",
+    "health",
+    "science",
+    "sports",
+    "technology"
+  ];
+
+  
+  setLoading(bool value) {
+    loading = value;
+    update();
+  }
+
+  setError(bool value) {
+    error = value;
+    update();
+  }
+
+  fetchData() async {
+    setLoading(true);
+    articles.clear();
+    final getTopHeadlineArticles = sl<GetTopHeadlineArticles>();
+    final result = await getTopHeadlineArticles
+        .call(HeadlineArticleParameters(category: category, country: country));
+    result.fold((l) {
+      setLoading(false);
+      setError(true);
+    }, (r) async {
+      articles = List.from(r);
+      update();
+      setLoading(false);
+    });
+  }
+
+  void tryAgain() {
+    fetchData();
+  }
+
+  @override
+  void onInit() {
+    fetchData();
+    super.onInit();
+  }
+}
+
+class Country {
+  String name;
+  String code;
+
+  Country(this.name, this.code);
+}
