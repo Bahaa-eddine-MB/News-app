@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news_app/NewsApp/presentation/screens/ArchiveView.dart';
 import 'package:news_app/NewsApp/presentation/screens/HomeDetailsView.dart';
 import 'package:news_app/NewsApp/presentation/screens/SearchView.dart';
 import 'package:news_app/NewsApp/presentation/screens/TrendingView.dart';
-
 import '../components/CustomButtonNavigatiomBar.dart';
 import '../controllers/HomeController.dart';
 
@@ -29,7 +27,6 @@ class _HomePageViewState extends State<HomePageView> {
               HomeDetailsView(),
               TrendingView(),
               SearchView(),
-              ArchiveView(),
             ],
           );
         },

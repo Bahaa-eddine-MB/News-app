@@ -30,10 +30,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         icon: Icons.search,
         title: 'Search',
       ),
-      CustomBottomNavigationBarItem(
-        title: 'Archived',
-        icon: Icons.archive_outlined,
-      ),
     ];
     return Container(
       decoration: BoxDecoration(
@@ -68,15 +64,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                           : ColorManager.grayColor,
                     ),
                     const SizedBox(height: 5),
-                    // Text(
-                    //   item.title,
-                    //   style: TextStyle(
-                    //       color: isSelected
-                    //           ? ColorManager.primary
-                    //           : ColorManager.grayColor,
-                    //       fontSize: 12,
-                    //       fontWeight: FontWeight.w700),
-                    // ),
                     Container(
                       width: 60,
                       height: 3,
