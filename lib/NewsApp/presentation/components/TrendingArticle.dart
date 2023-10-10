@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class MainArticleCard extends StatelessWidget {
+class TrendingArticleCard extends StatelessWidget {
   final String sourceName;
   final String author;
   final String title;
@@ -11,7 +11,7 @@ class MainArticleCard extends StatelessWidget {
   final DateTime publishedAt;
   final String content;
 
-  const MainArticleCard({
+  const TrendingArticleCard({
     Key? key,
     required this.sourceName,
     required this.author,
@@ -28,7 +28,8 @@ class MainArticleCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
-        width: MediaQuery.of(context).size.width * 0.9,
+        width: MediaQuery.of(context).size.width * 0.4,
+        height: 300,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -59,46 +60,14 @@ class MainArticleCard extends StatelessWidget {
                 ),
               ),
               padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    description,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Source: $sourceName',
-                    style: const TextStyle(
-                      fontSize: 12,
-                      fontStyle: FontStyle.italic,
-                      color: Colors.white,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Author: $author',
-                    style: const TextStyle(
-                      fontSize: 12,
-                      fontStyle: FontStyle.italic,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
+              child: Text(
+                maxLines: 2,
+                title,
+                style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white,
+                ),
               ),
             ),
           ],

@@ -40,6 +40,8 @@ dependencies:
   lottie: ^2.3.2
   equatable: ^2.0.5
   get_it: 
+  shimmer: ^3.0.0
+  flutter_fadein: ^2.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

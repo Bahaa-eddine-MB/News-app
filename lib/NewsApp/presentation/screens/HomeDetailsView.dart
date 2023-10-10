@@ -22,6 +22,7 @@ class HomeDetailsView extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
+          const SizedBox(height: 50,),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
             child: Text(

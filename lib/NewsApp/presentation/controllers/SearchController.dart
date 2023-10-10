@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:get/get.dart';
 import 'package:news_app/NewsApp/domain/entities/Article.dart';
 import 'package:news_app/NewsApp/domain/usecases/get_recent_articles_usecase.dart';
@@ -8,6 +10,16 @@ class SearchController extends GetxController {
   bool loading = true;
   bool error = false;
   String query = "";
+  Timer? _debounce;
+
+  setSearch(String value) {
+    if (_debounce?.isActive ?? false) _debounce?.cancel();
+    _debounce = Timer(const Duration(milliseconds: 700), () {
+      query = value;
+      update();
+      tryAgain();
+    });
+  }
 
   setLoading(bool value) {
     loading = value;
@@ -37,11 +49,5 @@ class SearchController extends GetxController {
 
   void tryAgain() {
     fetchData();
-  }
-
-  @override
-  void onInit() {
-    fetchData();
-    super.onInit();
   }
 }

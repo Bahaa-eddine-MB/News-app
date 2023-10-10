@@ -19,7 +19,6 @@ class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       bottomNavigationBar: const CustomBottomNavigationBar(),
       body: GetBuilder<HomeController>(
         init: HomeController(),

@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:news_app/core/global/theme/ColorManager.dart';
+import 'package:flutter_fadein/flutter_fadein.dart';
 
 class ArticleCard extends StatelessWidget {
   final String imageUrl;
@@ -19,9 +21,9 @@ class ArticleCard extends StatelessWidget {
 
   String truncateAuthor(String value) {
     if (value.length <= 15) {
-      return value; // No need to truncate if it's already 15 characters or less
+      return value;
     } else {
-      return value.substring(0, 15); // Truncate to the first 15 characters
+      return value.substring(0, 15); 
     }
   }
 
@@ -32,24 +34,25 @@ class ArticleCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Card(
-        color: Colors.grey[100], // Gray background color
+        color: Colors.grey[100], 
         child: Row(
           children: [
-            // Left Image with Border Radius
-            Container(
-              margin: const EdgeInsets.all(8),
-              width: 100, // Adjust the width as needed
-              height: 100, // Adjust the height as needed
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0), // Border radius
-                image: DecorationImage(
-                  image: NetworkImage(
-                      imageUrl), // You can use AssetImage or any image provider
-                  fit: BoxFit.cover,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: FadeIn(
+                  duration: const Duration(milliseconds: 500),
+                  child: CachedNetworkImage(
+                    height: 100,
+                    width: 100,
+                    imageUrl: imageUrl,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
-            const SizedBox(width: 8.0), // Add spacing between image and content
+            const SizedBox(width: 8.0), 
             SizedBox(
               width: Get.width * 0.5,
               child: Column(

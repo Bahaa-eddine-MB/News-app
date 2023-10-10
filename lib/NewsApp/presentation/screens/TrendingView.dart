@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
 import 'package:lottie/lottie.dart';
+import 'package:news_app/NewsApp/presentation/components/TrendingArticle.dart';
 import 'package:news_app/NewsApp/presentation/controllers/PopularArticlesController.dart';
-
+import 'package:news_app/NewsApp/presentation/controllers/TopCrunchHeadlinesController.dart';
 import '../components/ArticleCard.dart';
 import '../components/ErrorToast.dart';
 
@@ -14,9 +14,13 @@ class TrendingView extends StatelessWidget {
   Widget build(BuildContext context) {
     final PopulerArticlesController populerArticlesController =
         Get.put(PopulerArticlesController());
+    final TopCrunchHeadlineController topCrunchHeadlineController = Get.put(TopCrunchHeadlineController());
     return Scaffold(
       body: ListView(
         children: [
+          const SizedBox(
+            height: 50,
+          ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
             child: Text(
@@ -31,6 +35,55 @@ class TrendingView extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
             child: Text(
               "Top reads of the day !",
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+           SizedBox(
+            height: 280,
+            child: GetBuilder<TopCrunchHeadlineController>(builder: (context) {
+              if (topCrunchHeadlineController.loading == true) {
+                return Center(
+                    child: Lottie.asset('assets/lottie/loading.json'));
+              } else if (topCrunchHeadlineController.loading == false &&
+                  topCrunchHeadlineController.error == true) {
+                return ErrorToast(callback: () {
+                  topCrunchHeadlineController.tryAgain();
+                });
+              } else {
+                return ListView.builder(
+                  padding: const EdgeInsets.symmetric(vertical: 25),
+                  itemCount: topCrunchHeadlineController.articles.length,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: ((context, index) {
+                    final article = topCrunchHeadlineController.articles[index];
+                    if (article.imageUrl != "") {
+                      return TrendingArticleCard(
+                        author: article.author,
+                        content: article.content,
+                        description: article.description,
+                        imageUrl: article.imageUrl,
+                        publishedAt: article.publishedAt,
+                        sourceName: article.sourceName,
+                        title: article.title,
+                        url: article.url,
+                      );
+                    }
+                    return const SizedBox();
+                  }),
+                );
+              }
+            }),
+          ),
+            const SizedBox(
+            height: 15,
+          ),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
+            child: Text(
+              "Trending in palestine :",
               style: TextStyle(fontSize: 20),
             ),
           ),
