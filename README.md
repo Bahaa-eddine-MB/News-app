@@ -37,7 +37,7 @@ You can bronws by category or by search query and countries !
        <td>Trending screen</td>
     </tr>
     <td><img src="https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/7adb37f4-bc97-4123-9a92-6d8cf0a179ff" alt="Search screen" ></td>
-    <td><img src="https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/fc609c99-3e1d-4415-b151-db9815a66187" alt="Trending screen"></td>
+    <td><img src="https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/84ac2817-7506-4778-9608-3a6ff9fa0f8d" alt="Trending screen"></td>
   </tr>
 </table>
 
