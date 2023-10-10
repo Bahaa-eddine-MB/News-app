@@ -66,6 +66,7 @@ class ArticleDetailView extends StatelessWidget {
                         height: Get.height * 0.45,
                       ),
                       Text(
+                        maxLines: 2 ,
                         title,
                         style: const TextStyle(
                           color: Colors.white,
@@ -96,6 +97,7 @@ class ArticleDetailView extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
+                        maxLines: 3,
                         description,
                         style: const TextStyle(
                           color: Colors.white,
@@ -103,7 +105,6 @@ class ArticleDetailView extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 16),
-                      // Published Date
                       Text(
                         "Published at: $publishedAt",
                         style: const TextStyle(
