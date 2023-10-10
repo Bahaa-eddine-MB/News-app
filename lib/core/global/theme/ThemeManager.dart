@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'ColorManager.dart';
@@ -65,22 +64,6 @@ ThemeData getApplicationThemData() {
           borderRadius: BorderRadius.circular(AppSize.s10),
         ),
       )),
-      //text theme
-      textTheme: TextTheme(
-        bodySmall: getRegularTextStyle(
-            color: ColorManager.lightIconColor, line: false),
-        bodyLarge: getRegularTextStyle(
-            color: ColorManager.lightTextColor, line: false),
-        bodyMedium: getCardTextStyle(
-          color: ColorManager.lightIconColor,
-        ),
-        titleSmall: getRegularTextStyle(
-            fontSize: FontSize.s14,
-            color: ColorManager.lightIconColor,
-            line: false),
-        titleLarge: getTitleBoldStyle(color: ColorManager.lightTextColor),
-        titleMedium: getTitleSemiBoldStyle(color: ColorManager.lightIconColor),
-      ),
 
       //input theme
 
