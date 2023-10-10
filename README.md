@@ -31,7 +31,14 @@ You can bronws by category or by search query and countries !
     <td><img src="https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/a5e531b0-95e6-484b-99bb-24f383e6b69c" alt="Article details" ></td>
        <td><img src="https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/0b185e9f-8452-4549-9869-2e87a850fc0b" alt="Home Page Articles Screenshot"></td>
   </tr>
+    <tr>
+    <tr>
+      <td>Search screen</td>
+       <td>Trending screen</td>
+    </tr>
+    <td><img src="https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/7adb37f4-bc97-4123-9a92-6d8cf0a179ff" alt="Search screen" ></td>
+    <td><img src="https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/fc609c99-3e1d-4415-b151-db9815a66187" alt="Trending screen"></td>
+  </tr>
 </table>
 
 
-https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/50c40506-dea2-4b36-8bf8-4e919304f5e6
