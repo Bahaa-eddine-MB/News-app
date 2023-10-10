@@ -8,7 +8,22 @@ class HomeDetailsController extends GetxController {
   List<Article> articles = [];
   bool loading = true;
   bool error = false;
+  int selectedCategory = 0;
 
+  void setSelectedCategory(int value) {
+    selectedCategory = value;
+    update();
+  }
+
+  List<String> categories = [
+    "business",
+    "entertainment",
+    "general",
+    "health",
+    "science",
+    "sports",
+    "technology"
+  ];
   setLoading(bool value) {
     loading = value;
     update();

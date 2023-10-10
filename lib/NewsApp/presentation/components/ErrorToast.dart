@@ -20,7 +20,7 @@ class _ErrorToastState extends State<ErrorToast> {
       children: [
        Center(child: Lottie.asset('assets/lottie/wrong.json',)),
         Positioned(
-          bottom:  50,
+          bottom:  20,
           left: Get.width*0.41,
           child: TextButton(onPressed: widget.callback,style: TextButton.styleFrom(
                 backgroundColor: Colors.transparent, // Text color

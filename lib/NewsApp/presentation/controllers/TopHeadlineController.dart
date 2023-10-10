@@ -1,16 +1,21 @@
 import 'package:get/get.dart';
 import 'package:news_app/NewsApp/domain/usecases/get_topHeadlines_usecase.dart';
+import 'package:news_app/NewsApp/presentation/controllers/HomeDetailsController.dart';
 
 import '../../../core/service/serviceLocator.dart';
 import '../../domain/entities/Article.dart';
 
 class TopHeadlinesController extends GetxController {
+  final HomeDetailsController homeDetailsController;
   List<Article> articles = [];
   bool loading = true;
   bool error = false;
+  String category = "";
   String country = "us";
-  String category = "business";
-
+  TopHeadlinesController() : homeDetailsController = Get.find() {
+    category = homeDetailsController
+        .categories[homeDetailsController.selectedCategory];
+  }
   List<Country> countries = [
     Country("United Arab Emirates", "ae"),
     Country("Argentina", "ar"),
@@ -78,7 +83,6 @@ class TopHeadlinesController extends GetxController {
     "technology"
   ];
 
-  
   setLoading(bool value) {
     loading = value;
     update();

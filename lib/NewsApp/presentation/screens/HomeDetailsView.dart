@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:news_app/NewsApp/domain/entities/Article.dart';
+import 'package:news_app/NewsApp/presentation/components/ArticleCard.dart';
+import 'package:news_app/NewsApp/presentation/components/CategoryWidget.dart';
 import 'package:news_app/NewsApp/presentation/components/MainArticleCard.dart';
 import 'package:news_app/NewsApp/presentation/controllers/HomeDetailsController.dart';
 import 'package:lottie/lottie.dart';
+import 'package:news_app/NewsApp/presentation/controllers/TopHeadlineController.dart';
 import '../components/ErrorToast.dart';
 
 class HomeDetailsView extends StatelessWidget {
@@ -13,8 +15,10 @@ class HomeDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     final HomeDetailsController homeDetailsController =
         Get.put(HomeDetailsController());
+
+    final TopHeadlinesController topHeadlinesController =
+        Get.put(TopHeadlinesController());
     return Scaffold(
-      appBar: AppBar(),
       body: ListView(
         children: [
           const Padding(
@@ -64,11 +68,68 @@ class HomeDetailsView extends StatelessWidget {
                         url: article.url,
                       );
                     }
+                    return const SizedBox();
                   }),
                 );
               }
             }),
           ),
+          SizedBox(
+              height: 100,
+              child: ListView.builder(
+                padding: const EdgeInsets.symmetric(vertical: 25),
+                itemCount: homeDetailsController.categories.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: ((context, index) {
+                  final category = homeDetailsController.categories[index];
+                  return GetBuilder<HomeDetailsController>(builder: (context) {
+                    return CategoryCard(
+                      onTap: () {
+                        homeDetailsController.setSelectedCategory(index);
+                        topHeadlinesController.category =
+                            topHeadlinesController.categories[index];
+                        topHeadlinesController.tryAgain();
+                      },
+                      isSelected:
+                          index == homeDetailsController.selectedCategory,
+                      text: category,
+                    );
+                  });
+                }),
+              )),
+          const SizedBox(
+            height: 15,
+          ),
+          GetBuilder<TopHeadlinesController>(builder: (context) {
+            if (topHeadlinesController.loading == true) {
+              return Center(child: Lottie.asset('assets/lottie/loading.json'));
+            } else if (topHeadlinesController.loading == false &&
+                topHeadlinesController.error == true) {
+              return ErrorToast(callback: () {
+                topHeadlinesController.tryAgain();
+              });
+            } else {
+              return ListView.builder(
+                physics:
+                   const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                itemCount: topHeadlinesController.articles.length,
+                itemBuilder: ((context, index) {
+                  final article = topHeadlinesController.articles[index];
+                  if (article.imageUrl != "") {
+                    return ArticleCard(
+                      author: article.author,
+                      description: article.description,
+                      imageUrl: article.imageUrl,
+                      date: article.publishedAt,
+                      title: article.title,
+                    );
+                  }
+                  return const SizedBox();
+                }),
+              );
+            }
+          }),
         ],
       ),
     );
