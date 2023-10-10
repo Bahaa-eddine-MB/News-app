@@ -11,7 +11,6 @@ class TopHeadlinesController extends GetxController {
   bool loading = true;
   bool error = false;
   String category = "";
-  String country = "us";
   TopHeadlinesController() : homeDetailsController = Get.find() {
     category = homeDetailsController
         .categories[homeDetailsController.selectedCategory];
@@ -39,7 +38,6 @@ class TopHeadlinesController extends GetxController {
     Country("Hungary", "hu"),
     Country("Indonesia", "id"),
     Country("Ireland", "ie"),
-    Country("Israel", "il"),
     Country("India", "in"),
     Country("Italy", "it"),
     Country("Japan", "jp"),
@@ -73,6 +71,13 @@ class TopHeadlinesController extends GetxController {
     Country("South Africa", "za"),
   ];
 
+  Country country = Country("United States", "us");
+
+  void setCountry(Country value) {
+    country = value;
+    update();
+  }
+
   List<String> categories = [
     "business",
     "entertainment",
@@ -97,8 +102,8 @@ class TopHeadlinesController extends GetxController {
     setLoading(true);
     articles.clear();
     final getTopHeadlineArticles = sl<GetTopHeadlineArticles>();
-    final result = await getTopHeadlineArticles
-        .call(HeadlineArticleParameters(category: category, country: country));
+    final result = await getTopHeadlineArticles.call(
+        HeadlineArticleParameters(category: category, country: country.name));
     result.fold((l) {
       setLoading(false);
       setError(true);

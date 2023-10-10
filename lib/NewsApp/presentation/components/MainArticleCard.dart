@@ -25,17 +25,24 @@ class MainArticleCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-          horizontal: 15), 
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Container(
-        width: MediaQuery.of(context).size.width *0.9,
+        width: MediaQuery.of(context).size.width * 0.9,
         decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2),
+              spreadRadius: 0.5,
+              blurRadius: 0.7,
+              offset: const Offset(0, 0), // changes position of shadow
+            ),
+          ],
           borderRadius: const BorderRadius.all(
             Radius.circular(15),
           ),
           image: DecorationImage(
-            image: NetworkImage(imageUrl), 
-            fit: BoxFit.cover, 
+            image: NetworkImage(imageUrl),
+            fit: BoxFit.cover,
           ),
         ),
         child: Column(
@@ -43,16 +50,14 @@ class MainArticleCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              decoration:  BoxDecoration(
+              decoration: BoxDecoration(
                 color: Colors.black.withOpacity(0.5),
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(15),
                   bottomRight: Radius.circular(15),
                 ),
               ),
-             
-              padding:
-                  const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -61,39 +66,33 @@ class MainArticleCard extends StatelessWidget {
                     style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white, 
+                      color: Colors.white,
                     ),
                   ),
-                  const SizedBox(
-                      height: 8), 
+                  const SizedBox(height: 8),
                   Text(
                     description,
                     style: const TextStyle(
-                      fontSize: 14, 
-                      color: Colors.white, 
+                      fontSize: 14,
+                      color: Colors.white,
                     ),
-                    maxLines: 2, 
-                    overflow: TextOverflow
-                        .ellipsis, 
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(
-                      height:
-                          8),
+                  const SizedBox(height: 8),
                   Text(
                     'Source: $sourceName',
                     style: const TextStyle(
-                      fontSize: 12, 
+                      fontSize: 12,
                       fontStyle: FontStyle.italic,
-                      color: Colors.white, 
+                      color: Colors.white,
                     ),
                   ),
-                  const SizedBox(
-                      height:
-                          8), 
+                  const SizedBox(height: 8),
                   Text(
                     'Author: $author',
                     style: const TextStyle(
-                      fontSize: 12, 
+                      fontSize: 12,
                       fontStyle: FontStyle.italic,
                       color: Colors.white,
                     ),

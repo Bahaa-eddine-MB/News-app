@@ -6,6 +6,7 @@ import 'package:news_app/NewsApp/presentation/components/MainArticleCard.dart';
 import 'package:news_app/NewsApp/presentation/controllers/HomeDetailsController.dart';
 import 'package:lottie/lottie.dart';
 import 'package:news_app/NewsApp/presentation/controllers/TopHeadlineController.dart';
+import 'package:news_app/core/global/theme/ColorManager.dart';
 import '../components/ErrorToast.dart';
 
 class HomeDetailsView extends StatelessWidget {
@@ -34,7 +35,7 @@ class HomeDetailsView extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
             child: Text(
-              "Explore the world by one click !",
+              "Top wallstreet articles !",
               style: TextStyle(fontSize: 20),
             ),
           ),
@@ -97,6 +98,45 @@ class HomeDetailsView extends StatelessWidget {
                   });
                 }),
               )),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Text(
+                  "Country :",
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+                ),
+                const SizedBox(
+                  width: 15,
+                ),
+                GetBuilder<TopHeadlinesController>(builder: (context) {
+                  return DropdownButton<Country>(
+                    value: topHeadlinesController.country,
+                    isExpanded: false,
+                    icon: const Icon(Icons.arrow_downward),
+                    iconSize: 24,
+                    elevation: 16,
+                    dropdownColor: Colors.white,
+                    underline:
+                        Container(height: 2, color: ColorManager.primary),
+                    onChanged: (value) {
+                      topHeadlinesController.setCountry(value!);
+                      topHeadlinesController.tryAgain();
+                    },
+                    items:
+                        topHeadlinesController.countries.map((Country country) {
+                      return DropdownMenuItem<Country>(
+                        value: country,
+                        child: Text(country.name),
+                      );
+                    }).toList(),
+                  );
+                }),
+              ],
+            ),
+          ),
           const SizedBox(
             height: 15,
           ),
@@ -110,8 +150,7 @@ class HomeDetailsView extends StatelessWidget {
               });
             } else {
               return ListView.builder(
-                physics:
-                   const NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                 itemCount: topHeadlinesController.articles.length,
                 itemBuilder: ((context, index) {
