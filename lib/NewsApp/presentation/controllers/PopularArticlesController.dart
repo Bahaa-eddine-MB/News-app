@@ -23,7 +23,7 @@ class PopulerArticlesController extends GetxController {
     setLoading(true);
     articles.clear();
     final getPopularArticles = sl<GetPopularArticles>();
-    final result = await getPopularArticles.call(PopularArticleParameters(query: query, from: "2023-08-09", to: "2023-9-10"));
+    final result = await getPopularArticles.call(PopularArticleParameters(query: query, from: "2023-09-09", to: "2023-10-09"));
     result.fold((l) {
       setLoading(false);
       setError(true);

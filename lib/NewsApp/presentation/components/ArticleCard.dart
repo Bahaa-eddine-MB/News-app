@@ -17,16 +17,12 @@ class ArticleCard extends StatelessWidget {
     required this.author,
   });
 
-  String truncateAuthor(String author) {
-    // Split the author text into words
-    List<String> words = author.split(' ');
-
-    // Limit the number of words and join them back into a string
-    if (words.length > 3) {
-      words = words.sublist(0, 3);
+  String truncateAuthor(String value) {
+    if (value.length <= 15) {
+      return value; // No need to truncate if it's already 15 characters or less
+    } else {
+      return value.substring(0, 15); // Truncate to the first 15 characters
     }
-
-    return words.join(' ');
   }
 
   @override

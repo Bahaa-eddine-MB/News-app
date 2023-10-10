@@ -71,9 +71,9 @@ class TopHeadlinesController extends GetxController {
     Country("South Africa", "za"),
   ];
 
-  Country country = Country("United States", "us");
+  String country = "us";
 
-  void setCountry(Country value) {
+  void setCountry(String value) {
     country = value;
     update();
   }
@@ -103,7 +103,7 @@ class TopHeadlinesController extends GetxController {
     articles.clear();
     final getTopHeadlineArticles = sl<GetTopHeadlineArticles>();
     final result = await getTopHeadlineArticles.call(
-        HeadlineArticleParameters(category: category, country: country.name));
+        HeadlineArticleParameters(category: category, country: country));
     result.fold((l) {
       setLoading(false);
       setError(true);

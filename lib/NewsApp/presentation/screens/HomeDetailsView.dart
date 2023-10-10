@@ -109,10 +109,10 @@ class HomeDetailsView extends StatelessWidget {
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(
-                  width: 15,
+                  width: 10,
                 ),
                 GetBuilder<TopHeadlinesController>(builder: (context) {
-                  return DropdownButton<Country>(
+                  return DropdownButton<String>(
                     value: topHeadlinesController.country,
                     isExpanded: false,
                     icon: const Icon(Icons.arrow_downward),
@@ -127,8 +127,8 @@ class HomeDetailsView extends StatelessWidget {
                     },
                     items:
                         topHeadlinesController.countries.map((Country country) {
-                      return DropdownMenuItem<Country>(
-                        value: country,
+                      return DropdownMenuItem<String>(
+                        value: country.code, 
                         child: Text(country.name),
                       );
                     }).toList(),
