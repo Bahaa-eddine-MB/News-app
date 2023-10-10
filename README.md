@@ -1,16 +1,15 @@
-# news_app
+# News flutter application
 
-A new Flutter project.
+A flutter application that provides you with the latest news, trends and search for any article on the internet.
 
-## Getting Started
+## Screens
+# Home page
+![Screenshot_1696973074](https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/b4f87fe5-b9cd-4537-8adf-d7e2c9c37042)
 
-This project is a starting point for a Flutter application.
+# Home page articles
+![Screenshot_1696973082](https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/0b185e9f-8452-4549-9869-2e87a850fc0b)
 
-A few resources to get you started if this is your first Flutter project:
+# Loading toast
+![Screenshot_1696973231](https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/4eb4f2cc-c4ba-4eaf-8846-660e7bd4ad25)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
