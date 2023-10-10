@@ -22,7 +22,7 @@ class HomeDetailsView extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          const SizedBox(height: 50,),
+          const SizedBox(height: 30,),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
             child: Text(
@@ -158,6 +158,9 @@ class HomeDetailsView extends StatelessWidget {
                   final article = topHeadlinesController.articles[index];
                   if (article.imageUrl != "") {
                     return ArticleCard(
+                      sourceName: article.sourceName,
+                      url: article.url,
+                      content: article.content,
                       author: article.author,
                       description: article.description,
                       imageUrl: article.imageUrl,

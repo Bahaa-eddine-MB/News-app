@@ -19,12 +19,6 @@ class _SearchViewState extends State<SearchView> {
     final SearchController searchController = Get.put(SearchController());
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () {
-            Get.back();
-          },
-        ),
         title: Card(
           child: TextField(
             onChanged: searchController.setSearch,
@@ -34,7 +28,10 @@ class _SearchViewState extends State<SearchView> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               hintText: 'Search',
-              suffixIcon: const Icon(Icons.search,size: 25,),
+              suffixIcon: const Icon(
+                Icons.search,
+                size: 25,
+              ),
             ),
           ),
         ),
@@ -99,6 +96,12 @@ class _SearchViewState extends State<SearchView> {
 
                 if (article[index].imageUrl != "") {
                   return SearchItemCard(
+                    author: article[index].author,
+                    content: article[index].content,
+                    description: article[index].description,
+                    publishedAt: article[index].publishedAt,
+                    sourceName: article[index].sourceName,
+                    url: article[index].url,
                     imageUrl: article[index].imageUrl,
                     title: article[index].title,
                   );

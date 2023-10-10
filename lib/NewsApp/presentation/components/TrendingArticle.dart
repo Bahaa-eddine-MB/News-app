@@ -1,5 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../screens/ArticleDetailView.dart';
 
 class TrendingArticleCard extends StatelessWidget {
   final String sourceName;
@@ -27,50 +30,61 @@ class TrendingArticleCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.4,
-        height: 300,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 0.5,
-              blurRadius: 0.7,
-              offset: const Offset(0, 0), // changes position of shadow
+      child: GestureDetector(
+          onTap: () {
+          Get.to(() => ArticleDetailView(
+              title: title,
+              description: description,
+              content: content,
+              imageUrl: imageUrl,
+              publishedAt:
+                  "${publishedAt.day}/${publishedAt.month}/${publishedAt.year}"));
+        },
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.4,
+          height: 300,
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.2),
+                spreadRadius: 0.5,
+                blurRadius: 0.7,
+                offset: const Offset(0, 0), // changes position of shadow
+              ),
+            ],
+            borderRadius: const BorderRadius.all(
+              Radius.circular(15),
             ),
-          ],
-          borderRadius: const BorderRadius.all(
-            Radius.circular(15),
+            image: DecorationImage(
+              image: CachedNetworkImageProvider(imageUrl),
+              fit: BoxFit.cover,
+            ),
           ),
-          image: DecorationImage(
-            image: CachedNetworkImageProvider(imageUrl),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.black.withOpacity(0.5),
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(15),
-                  bottomRight: Radius.circular(15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.5),
+                  borderRadius: const BorderRadius.only(
+                    bottomLeft: Radius.circular(15),
+                    bottomRight: Radius.circular(15),
+                  ),
+                ),
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  maxLines: 2,
+                  title,
+                  style: const TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                maxLines: 2,
-                title,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

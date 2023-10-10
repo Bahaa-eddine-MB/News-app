@@ -14,12 +14,13 @@ class TrendingView extends StatelessWidget {
   Widget build(BuildContext context) {
     final PopulerArticlesController populerArticlesController =
         Get.put(PopulerArticlesController());
-    final TopCrunchHeadlineController topCrunchHeadlineController = Get.put(TopCrunchHeadlineController());
+    final TopCrunchHeadlineController topCrunchHeadlineController =
+        Get.put(TopCrunchHeadlineController());
     return Scaffold(
       body: ListView(
         children: [
           const SizedBox(
-            height: 50,
+            height: 30,
           ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
@@ -38,10 +39,7 @@ class TrendingView extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
           ),
-          const SizedBox(
-            height: 30,
-          ),
-           SizedBox(
+          SizedBox(
             height: 280,
             child: GetBuilder<TopCrunchHeadlineController>(builder: (context) {
               if (topCrunchHeadlineController.loading == true) {
@@ -77,7 +75,7 @@ class TrendingView extends StatelessWidget {
               }
             }),
           ),
-            const SizedBox(
+          const SizedBox(
             height: 15,
           ),
           const Padding(
@@ -107,6 +105,9 @@ class TrendingView extends StatelessWidget {
                   final article = populerArticlesController.articles[index];
                   if (article.imageUrl != "") {
                     return ArticleCard(
+                      sourceName: article.sourceName,
+                      url: article.url,
+                      content: article.content,
                       author: article.author,
                       description: article.description,
                       imageUrl: article.imageUrl,
