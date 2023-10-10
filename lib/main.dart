@@ -4,10 +4,14 @@ import 'package:news_app/core/utils/AppString.dart';
 import 'NewsApp/presentation/RouteManager.dart';
 import 'core/global/theme/ThemeManager.dart';
 import 'core/service/serviceLocator.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   ServicesLocator().init();
   runApp(const MyApp());
+  FlutterNativeSplash.remove();
 }
 
 class MyApp extends StatelessWidget {
