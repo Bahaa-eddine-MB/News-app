@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:news_app/core/utils/AppString.dart';
 
 class ArticleDetailView extends StatelessWidget {
   final String title;
@@ -88,7 +89,7 @@ class ArticleDetailView extends StatelessWidget {
                       const Divider(color: Colors.white),
                       const SizedBox(height: 8),
                       const Text(
-                        "Description",
+                        AppString.description,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -106,7 +107,7 @@ class ArticleDetailView extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        "Published at: $publishedAt",
+                        "${AppString.publishedAt}: $publishedAt",
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:news_app/NewsApp/presentation/components/SearchItem.dart';
 import 'package:news_app/NewsApp/presentation/controllers/SearchController.dart';
+import 'package:news_app/core/utils/AppString.dart';
 import '../../../../core/global/theme/ColorManager.dart';
 import '../components/ErrorToast.dart';
 
@@ -27,7 +28,7 @@ class _SearchViewState extends State<SearchView> {
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              hintText: 'Search',
+              hintText:AppString.search,
               suffixIcon: const Icon(
                 Icons.search,
                 size: 25,
@@ -55,7 +56,7 @@ class _SearchViewState extends State<SearchView> {
                 height: 20,
               ),
               Text(
-                "Search for somthing",
+               AppString.searchForSmt,
                 style: TextStyle(color: ColorManager.lightTextColor),
               )
             ],
@@ -82,7 +83,7 @@ class _SearchViewState extends State<SearchView> {
                     height: 20,
                   ),
                   Text(
-                    "Nothing found",
+                    AppString.nothing,
                     style: TextStyle(color: ColorManager.grayColor),
                   )
                 ],

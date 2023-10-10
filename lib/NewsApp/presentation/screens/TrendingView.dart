@@ -4,6 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:news_app/NewsApp/presentation/components/TrendingArticle.dart';
 import 'package:news_app/NewsApp/presentation/controllers/PopularArticlesController.dart';
 import 'package:news_app/NewsApp/presentation/controllers/TopCrunchHeadlinesController.dart';
+import 'package:news_app/core/utils/AppString.dart';
 import '../components/ArticleCard.dart';
 import '../components/ErrorToast.dart';
 
@@ -25,7 +26,7 @@ class TrendingView extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
             child: Text(
-              "Walk with Trend",
+              AppString.walkTrend,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
@@ -35,7 +36,7 @@ class TrendingView extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
             child: Text(
-              "Top reads of the day !",
+              AppString.topReads,
               style: TextStyle(fontSize: 20),
             ),
           ),
@@ -81,7 +82,7 @@ class TrendingView extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
             child: Text(
-              "Trending in palestine :",
+              AppString.palastine,
               style: TextStyle(fontSize: 20),
             ),
           ),

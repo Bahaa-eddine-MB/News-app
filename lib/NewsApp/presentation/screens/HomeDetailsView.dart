@@ -7,6 +7,7 @@ import 'package:news_app/NewsApp/presentation/controllers/HomeDetailsController.
 import 'package:lottie/lottie.dart';
 import 'package:news_app/NewsApp/presentation/controllers/TopHeadlineController.dart';
 import 'package:news_app/core/global/theme/ColorManager.dart';
+import 'package:news_app/core/utils/AppString.dart';
 import '../components/ErrorToast.dart';
 
 class HomeDetailsView extends StatelessWidget {
@@ -22,11 +23,13 @@ class HomeDetailsView extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          const SizedBox(height: 30,),
+          const SizedBox(
+            height: 30,
+          ),
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
             child: Text(
-              "Good morning",
+              AppString.goodMorning,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
@@ -36,7 +39,7 @@ class HomeDetailsView extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
             child: Text(
-              "Top wallstreet articles !",
+              AppString.wallStreet,
               style: TextStyle(fontSize: 20),
             ),
           ),
@@ -106,7 +109,7 @@ class HomeDetailsView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const Text(
-                  "Country :",
+                  AppString.country,
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
                 ),
                 const SizedBox(
@@ -129,7 +132,7 @@ class HomeDetailsView extends StatelessWidget {
                     items:
                         topHeadlinesController.countries.map((Country country) {
                       return DropdownMenuItem<String>(
-                        value: country.code, 
+                        value: country.code,
                         child: Text(country.name),
                       );
                     }).toList(),

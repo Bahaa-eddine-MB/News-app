@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:news_app/core/utils/AppString.dart';
 import '../../../core/global/theme/ColorManager.dart';
 import '../../data/models/ButtomNavigationBarModel.dart';
 import '../controllers/HomeController.dart';
@@ -20,15 +21,15 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     List<CustomBottomNavigationBarItem> bottomNavBarItems = [
       CustomBottomNavigationBarItem(
         icon: Icons.home_filled,
-        title: 'Home',
+        title: AppString.home,
       ),
       CustomBottomNavigationBarItem(
         icon: Icons.local_fire_department_outlined,
-        title: 'Trending',
+        title: AppString.trending,
       ),
       CustomBottomNavigationBarItem(
         icon: Icons.search,
-        title: 'Search',
+        title: AppString.search,
       ),
     ];
     return Container(

@@ -16,7 +16,7 @@ class ArticleCard extends StatelessWidget {
   final DateTime date;
   final String content;
 
-  ArticleCard({
+  const ArticleCard({
     required this.imageUrl,
     required this.title,
     required this.description,
