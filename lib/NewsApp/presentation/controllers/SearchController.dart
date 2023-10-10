@@ -1,6 +1,6 @@
 import 'dart:async';
-
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:news_app/NewsApp/domain/entities/Article.dart';
 import 'package:news_app/NewsApp/domain/usecases/get_recent_articles_usecase.dart';
 import '../../../core/service/serviceLocator.dart';
@@ -35,8 +35,10 @@ class SearchController extends GetxController {
     setLoading(true);
     articles.clear();
     final getRecentArticles = sl<GetRecentArticles>();
-    final result = await getRecentArticles
-        .call(RecentArticleParameters(query: query, from: "2023-09-09"));
+    final result = await getRecentArticles.call(RecentArticleParameters(
+        query: query,
+        from:
+            "${DateFormat('yyyy-MM-dd').format(DateTime.now().subtract(Duration(days: 25)))}"));
     result.fold((l) {
       setLoading(false);
       setError(true);
