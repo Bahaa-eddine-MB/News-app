@@ -1,7 +1,7 @@
 # News Flutter Application
 
 A Flutter application that provides you with the latest news, trends, and the ability to search for any article on the internet.
-You can bronws by category or by search query and countries !
+You can browse by category or by search query and countries !
 
 # Screens
 
