@@ -7,6 +7,12 @@ You can browse by category or by search query and countries !
 
 <table>
   <tr>
+    <td>Mockup</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/d07f1eb0-4950-4841-95cd-09238bd3653a" alt="mockup"  ></td>
+  </tr>
+  <tr>
     <td>Splash screen</td>
     <td>Home Page</td>
   </tr>
