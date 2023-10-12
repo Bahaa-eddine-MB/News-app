@@ -4,14 +4,15 @@ A Flutter application that provides you with the latest news, trends, and the ab
 You can browse by category or by search query and countries !
 
 # Screens
-
 <table>
-  <tr>
+    <tr>
     <td>Mockup</td>
   </tr>
   <tr>
     <td><img src="https://github.com/Bahaa-eddine-MB/News-app/assets/78749320/d07f1eb0-4950-4841-95cd-09238bd3653a" alt="mockup"  ></td>
   </tr>
+</table>
+<table>
   <tr>
     <td>Splash screen</td>
     <td>Home Page</td>
